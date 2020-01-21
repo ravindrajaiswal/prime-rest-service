@@ -1,0 +1,29 @@
+#%RAML 1.0
+title: Prime Number API which returns all the prime numbers less then equal to the path parameter value
+version: v1.0
+baseUri: https://api.github.com/{version}
+types:
+  Primes:
+    type: array
+    description: List of all the primeNumbers which are less then equal to initial value
+    items: integer
+  PrimeResponse:
+    properties:
+      initial:
+        type: integer
+        description: The initial value you want to retrieve all the primeNumbers which are less then equal to it
+      primes:
+        type: Primes
+        description: List of all the primeNumbers which are less then equal to initial value
+/primes/{primeNumber}:
+  uriParameters:
+    primeNumber:
+      description: Specify the number that you want to retrieve all the primeNumbers which are less then equal to it
+      type: integer
+      minimum: 1
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: PrimeResponse
