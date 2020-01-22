@@ -14,21 +14,21 @@ public class PrimeNumberServiceImplTest {
 
   @Test
   public void testCheckPrimeSequence() {
-    assertThat(Arrays.asList(1L), is(service.getPrimeSequence(1L)));
+    assertThat(Arrays.asList(1L), is(service.getPrimeSimple(1L)));
   }
 
   @Test
   public void testCheckPrimeSequenceOne() {
-    assertThat(Arrays.asList(1L, 2L), is(service.getPrimeSequence(2L)));
+    assertThat(Arrays.asList(1L, 2L), is(service.getPrimeSimple(2L)));
   }
 
   @Test
   public void testCheckPrimeSequenceTwo() {
-    assertThat(Arrays.asList(1L, 2L, 3L, 5L), is(service.getPrimeSequence(5L)));
+    assertThat(Arrays.asList(1L, 2L, 3L, 5L), is(service.getPrimeSimple(5L)));
   }
 
   @Test
   public void testCheckPrimeSequenceThree() {
-    assertThat(Arrays.asList(1L, 2L, 3L, 5L), is(service.getPrimeSequence(6L)));
+    assertThat(Arrays.asList(1L, 2L, 3L, 5L), is(service.getPrimeSimple(6L)));
   }
 }

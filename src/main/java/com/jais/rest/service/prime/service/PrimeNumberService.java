@@ -7,5 +7,9 @@ import java.util.List;
 
 public interface PrimeNumberService {
 
-    public List<Long> getPrimeSequence(Long primeSequence);
+    public List<Long> getPrime(Long primeSequence, String algorithm);
+
+    public List<Long> getPrimeSimple(Long primeSequence);
+
+    public List<Long> getPrimeFaster(Long primeSequence);
 }

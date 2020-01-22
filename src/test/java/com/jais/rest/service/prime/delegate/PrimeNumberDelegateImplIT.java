@@ -30,7 +30,7 @@ public class PrimeNumberDelegateImplIT {
     ResponseEntity<PrimeResponse> responseEntity =
         this.restTemplate.getForEntity(
             "http://localhost:" + port + "/api/v1.0/primes/10", PrimeResponse.class);
-    assertEquals(200, responseEntity.getStatusCodeValue());
+      assertEquals(200, responseEntity.getStatusCodeValue());
       assertEquals(primes.getInitial(), responseEntity.getBody().getInitial());
       assertEquals(primes.getPrimes(), responseEntity.getBody().getPrimes());
   }
@@ -43,6 +43,21 @@ public class PrimeNumberDelegateImplIT {
     ResponseEntity<PrimeResponse> responseEntity =
             this.restTemplate.getForEntity(
                     "http://localhost:" + port + "/api/v1.0/primes/11", PrimeResponse.class);
+    assertEquals(200, responseEntity.getStatusCodeValue());
+    assertEquals(primes.getInitial(), responseEntity.getBody().getInitial());
+    assertEquals(primes.getPrimes(), responseEntity.getBody().getPrimes());
+  }
+
+
+
+  @Test
+  public void testPrimeResponseFaster() {
+    PrimeResponse primes = new PrimeResponse();
+    primes.setInitial(11L);
+    primes.setPrimes(Arrays.asList(1L, 2L, 3L, 5L, 7L,11L));
+    ResponseEntity<PrimeResponse> responseEntity =
+            this.restTemplate.getForEntity(
+                    "http://localhost:" + port + "/api/v1.0/primes/11?algorithm=FASTER", PrimeResponse.class);
     assertEquals(200, responseEntity.getStatusCodeValue());
     assertEquals(primes.getInitial(), responseEntity.getBody().getInitial());
     assertEquals(primes.getPrimes(), responseEntity.getBody().getPrimes());

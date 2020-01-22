@@ -22,8 +22,14 @@ types:
       type: integer
       minimum: 1
   get:
+    queryParameters:
+      algorithm:
+        description: Specify the page that you want to retrieve
+        enum: [ SIMPLE, FASTER ]
+        required:    false
     responses:
       200:
         body:
           application/json:
             type: PrimeResponse
+            example: !include examples/prime-response-example.json
